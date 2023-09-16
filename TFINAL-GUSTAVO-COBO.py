@@ -5,7 +5,7 @@ respuA = 0
 respuB = 0
 respuC = 0
 cuentapreg = 0
-cont = 0
+cont2 = 0
 def actionalu():
 
     comboalu2.visible = True
