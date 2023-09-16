@@ -151,7 +151,7 @@ def crear_encuesta():
     mensaje.visible = True
     mensaje.value = f"Encuesta: {nombre} creada correctamente."
 
-# Función para actualizar la lista de usuarios en la interfaz gráfica
+# Actualizamos la Lista de encuestas
 def actualizar_lista_encuestas():
     lista_encuestas.clear()
     comboalu2.clear()
@@ -162,12 +162,12 @@ def actualizar_lista_encuestas():
      combopreg.append(f"Pregunta1: {encuesta['Pregunta1']} - Pregunta2: {encuesta['Pregunta2']} - Pregunta3: {encuesta['Pregunta3']} - Pregunta4: {encuesta['Pregunta4']}")
     
 
-# Función para eliminar una encuesta seleccionada de la lista
+# Eliminamos la Encuesta
 def eliminar_encuesta():
     selected = lista_encuestas.value
     if selected:
-        parts = selected.split(", ")
-        i = int(parts[0].split(": ")[1]) - 1
+        parts = selected.split(",Encuesta")
+        i = int(parts[0].split(": ")[1])-1
         encuesta_eliminada = encuestas.pop(i)
         actualizar_lista_encuestas()
         mensaje.value = f"Encuesta: {encuesta_eliminada['Encuesta']} eliminada correctamente."
@@ -302,14 +302,13 @@ salir_button.visible = False
 lista_encuestas = ListBox(caja, items=[], grid=[0, 5, 2, 3], width=500, height=80)
 lista_encuestas.visible = False
 
-# Mensaje de estado
+# Mensajes
 mensaje = Text(caja, text="", grid=[0, 10, 2, 1])
 mensaje.visible = False
 
 actualizar_lista_encuestas()
 
-
-
-# Ejecutar la aplicación
+# Ejecutamos la app de Encuestas
 abmencuestas.display()
+
 
