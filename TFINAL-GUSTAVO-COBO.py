@@ -5,7 +5,7 @@ respuA = 0
 respuB = 0
 respuC = 0
 cuentapreg = 0
-cont2 = 0
+
 def actionalu():
 
     comboalu2.visible = True
@@ -37,12 +37,19 @@ def actioncont():
         button3.visible= False
         
     else:
-        message = Text(abmencuestas, text= "La Contraseña es incorrecta ingresela nuevamente",  size= 20)
-        message.value
+        message4.visible = True
         input_passprofe.value = ""
     
 def actionprofe():
-    global cont
+    
+    comboalu2.visible = False
+    resA.visible = False
+    resB.visible = False
+    resC.visible = False
+    cantrespA.visible = False
+    cantrespB.visible = False
+    cantrespC.visible = False
+
     button1.visible = False
     button2.visible = False
     button3.visible =True
@@ -51,6 +58,7 @@ def actionprofe():
     input_passprofe.value
     
     if password == "1234":
+        message4.visible = False
         message2.visible = False
         alumnos.visible = False
         encuesta_label.visible = True
@@ -75,9 +83,10 @@ def actionprofe():
         lista_encuestas.align ="left"
         button1.visible = False
         button2.visible = False
+        
     else:
-        message = Text(abmencuestas, text= "La Contraseña es incorrecta ingresela nuevamente",  size= 20)
-        message.value
+        message4.visible = True
+        
         input_passprofe.value = ""
 
 def Opcion_A():
@@ -211,9 +220,12 @@ boton = Box(abmencuestas, layout="grid", grid=[1,0])
 button1 = PushButton(boton, actionalu, text="Alumno", grid=[0,0] )
 button2 = PushButton(boton,  actionprofe, text="Profesor", grid=[2,0] )
 passprofelabel = Text(abmencuestas,"Ingrese la contraseña: ")
-input_passprofe = TextBox(abmencuestas,0)
+input_passprofe = TextBox(abmencuestas,"")
 input_passprofe.visible= False
 passprofelabel.visible= False
+message4 = Text(abmencuestas, text= "La Contraseña es incorrecta ingresela nuevamente",  size= 20)
+message4.visible = False
+
 nomyapelabel = Text(abmencuestas,"Ingrese su Nombre y Apellido: ")
 nomyapealumno = TextBox(abmencuestas,"")
 nomyapelabel.visible = False
@@ -296,13 +308,6 @@ lista_encuestas.visible = False
 # Mensaje de estado
 mensaje = Text(caja, text="", grid=[0, 7, 2, 1])
 mensaje.visible = False
-
-# Crear un botón para mostrar encuestas
-
-#mostrar_button = PushButton(caja, text="Mostrar Encuestas", command=mostrar_encuestas, grid=[0, 5, 2, 1])
-#mostrar_button.visible = False
-
-# Inicializar la lista de usuarios en la interfaz gráfica
 
 actualizar_lista_encuestas()
 
