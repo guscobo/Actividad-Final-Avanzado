@@ -25,12 +25,11 @@ def combo_enc():
     textopreg3.value = combopreg.value.split(" - ")[2] 
     textopreg4.visible = False
     textopreg4.value = combopreg.value.split(" - ")[3] 
-
     
 def actioncont():
     global password
-    password = input_passprofe.value  # Obtener la contraseña ingresada
-    if password == "1234":  # Comparar con la contraseña correcta
+    password = input_passprofe.value 
+    if password == "1234":  
         actionprofe()
         passprofelabel.visible = False
         input_passprofe.visible = False
@@ -133,10 +132,7 @@ def cuenta():
         opcionA.visible = False
         opcionB.visible = False
         opcionC.visible = False
- 
 
-
-# Función para crear una nueva encuesta
 def crear_encuesta():
     nombre = nombre_encuesta_input.value
     pregunta1 = pregunta1_input.value
@@ -152,6 +148,7 @@ def crear_encuesta():
     pregunta2_input.clear()
     pregunta3_input.clear()
     pregunta4_input.clear()
+    mensaje.visible = True
     mensaje.value = f"Encuesta: {nombre} creada correctamente."
 
 # Función para actualizar la lista de usuarios en la interfaz gráfica
@@ -192,7 +189,7 @@ def finalizar_carga():
     lista_encuestas.visible = False
     button1.visible = True
     button2.visible = True
-    
+    mensaje.visible = False
     
 # Función para mostrar las encuestas en la lista
 def salir_encuesta():
@@ -306,7 +303,7 @@ lista_encuestas = ListBox(caja, items=[], grid=[0, 5, 2, 3], width=500, height=8
 lista_encuestas.visible = False
 
 # Mensaje de estado
-mensaje = Text(caja, text="", grid=[0, 7, 2, 1])
+mensaje = Text(caja, text="", grid=[0, 10, 2, 1])
 mensaje.visible = False
 
 actualizar_lista_encuestas()
@@ -315,3 +312,4 @@ actualizar_lista_encuestas()
 
 # Ejecutar la aplicación
 abmencuestas.display()
+
