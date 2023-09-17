@@ -7,11 +7,16 @@ respuC = 0
 cuentapreg = 0
 
 def actionalu():
+    if comboalu2.value == "":
+        noenc = Text(abmencuestas,text="No hay encuestas Disponible", size = 20)
+        noenc.value
+    else:
 
-    comboalu2.visible = True
-    salir_button.visible =True
+        comboalu2.visible = True
+        nomyapelabel.visible = True
+        nomyapealumno.visible = True
+        salir_button.visible =True
     
-
 def combo_enc():
 
     textopreg1.visible = True
@@ -82,10 +87,9 @@ def actionprofe():
         lista_encuestas.align ="left"
         button1.visible = False
         button2.visible = False
-        
+        input_passprofe.value = ""
     else:
         message4.visible = True
-        
         input_passprofe.value = ""
 
 def Opcion_A():
@@ -122,6 +126,10 @@ def cuenta():
         textopreg3.visible = False
         textopreg4.visible = True
     elif cuentapreg==4:
+        resalu = Text(abmencuestas,text= "El Alumno: "+nomyapealumno.value,size=20)
+        resalu.value
+        nomyapelabel.visible = False
+        nomyapealumno.visible = False
         textopreg4.visible = False
         resA.visible = True
         cantrespA.visible = True
@@ -224,7 +232,7 @@ message4 = Text(abmencuestas, text= "La Contraseña es incorrecta ingresela nuev
 message4.visible = False
 
 nomyapelabel = Text(abmencuestas,"Ingrese su Nombre y Apellido: ")
-nomyapealumno = TextBox(abmencuestas,"")
+nomyapealumno = TextBox(abmencuestas,"", width= 60)
 nomyapelabel.visible = False
 nomyapealumno.visible = False
 button3 = PushButton(abmencuestas, command=actioncont, text="Validar", grid=[6,0] )
@@ -232,9 +240,7 @@ button3.visible = False
 alumnos = Text(abmencuestas, text= "Elija una Encuesta:", visible=False)
 
 comboalu2 = Combo(abmencuestas, options=[], command=combo_enc, visible=False)
-#valores = []
-#for i in range(1, 11):
-#        valores.append(f"Encuesta {i}")
+
 cajaresp = Box(abmencuestas, layout="grid")
 combopreg = Combo(abmencuestas, options=[], command=combo_enc, visible=False)
 textopreg1 = Text(abmencuestas,"")
@@ -292,13 +298,6 @@ crear_button.visible = False
 eliminar_button.visible = False
 finalizar_button.visible = False
 salir_button.visible = False
-
-
-
-
-
-# Lista de usuarios
-#[0, 4, 2, 3])
 lista_encuestas = ListBox(caja, items=[], grid=[0, 5, 2, 3], width=500, height=80)
 lista_encuestas.visible = False
 
@@ -310,5 +309,3 @@ actualizar_lista_encuestas()
 
 # Ejecutamos la app de Encuestas
 abmencuestas.display()
-
-
