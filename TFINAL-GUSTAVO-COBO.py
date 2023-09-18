@@ -33,7 +33,8 @@ def actionmode():
     nomyapealumno.visible = True
     button4.visible = False
     button1.visible = False
-    button3.visible = True
+    button2.visible = False
+    salir_button.visible = True
     
 def combo_enc():
 
@@ -48,12 +49,13 @@ def combo_enc():
     textopreg3.value = combopreg.value.split(" - ")[2] 
     textopreg4.visible = False
     textopreg4.value = combopreg.value.split(" - ")[3] 
-    
+
 def actioncont():
     global password
     password = input_passprofe.value 
     nomyapelabel.visible=  False
     nomyapealumno.visible= False
+    
     if password == "1234":  
         actionprofe()
         passprofelabel.visible = False
@@ -66,6 +68,10 @@ def actioncont():
     
 def actionprofe():
     
+    button4.visible = False
+    resalu.visible = False
+    nomyapelabel.visible = False
+    nomyapealumno.visible = False
     comboalu2.visible = False
     resA.visible = False
     resB.visible = False
@@ -108,6 +114,7 @@ def actionprofe():
         button1.visible = False
         button2.visible = False
         input_passprofe.value = ""
+        
     else:
         message4.visible = True
         input_passprofe.value = ""
@@ -146,8 +153,9 @@ def cuenta():
         textopreg3.visible = False
         textopreg4.visible = True
     elif cuentapreg==4:
-        resalu = Text(abmencuestas,text= "El Alumno: "+nomyapealumno.value,size=20)
-        resalu.value
+        
+        resalu.visible = True
+        resalu.value = resalu.value +" "+ nomyapealumno.value
         nomyapelabel.visible = False
         nomyapealumno.visible = False
         textopreg4.visible = False
@@ -161,6 +169,8 @@ def cuenta():
         opcionB.visible = False
         opcionC.visible = False
         comboalu2.visible = False
+        
+            
 def crear_encuesta():
     nombre = nombre_encuesta_input.value
     pregunta1 = pregunta1_input.value
@@ -265,8 +275,10 @@ alumnos = Text(abmencuestas, text= "Elija una Encuesta:", visible=False)
 
 comboalu2 = Combo(abmencuestas, options=[], command=combo_enc, visible=False)
 
+
 cajaresp = Box(abmencuestas, layout="grid")
 combopreg = Combo(abmencuestas, options=[], command=combo_enc, visible=False)
+
 textopreg1 = Text(abmencuestas,"")
 textopreg2 = Text(abmencuestas,"")
 textopreg3 = Text(abmencuestas,"")
@@ -283,6 +295,8 @@ resB = Text(abmencuestas, text= "La cantidad de respuestas Opcion B es de: ", vi
 cantrespB = Text(abmencuestas,0)
 resC = Text(abmencuestas, text= "La cantidad de respuestas Opcion C es de: ", visible= False)
 cantrespC = Text(abmencuestas,0)
+resalu = Text(abmencuestas,text= "El Alumno: ",size=20)
+resalu.visible = False
 cantrespA.visible = False
 cantrespB.visible = False
 cantrespC.visible = False
