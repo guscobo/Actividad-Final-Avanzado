@@ -11,11 +11,29 @@ def actionalu():
         noenc = Text(abmencuestas,text="No hay encuestas Disponible", size = 20)
         noenc.value
     else:
-
         comboalu2.visible = True
         nomyapelabel.visible = True
         nomyapealumno.visible = True
         salir_button.visible =True
+
+def actionmode():
+    
+    comboalu2.clear()
+    combopreg.clear()
+    encuestamode = {"Encuesta": "ESCUELAS PRIVADAS"
+                    , "Pregunta1": "Cuantos compañeros pensas que debe haber el el curso? A: 20 Alumnos B: 25 Alumnos : C: 30 Alumnos"
+                    , "Pregunta2": "Cuantos recreos pensas que deberia haber? A: 2 Recreos  B: 3 Recreos : C: Mas de 3 Recreos", 
+                "Pregunta3": "Las materias de informática se deben desarrollar: A: En Sala de Maquinas B: Mitad en el aula y mitad en la Sala de Maquinas C: Solo en el aula",
+                "Pregunta4": "Como pensas que tus profesares deberian evaluarte: A: Examenes Escritos B:Examenes Orales C:Trabajos Prácticos" }
+    encuestas.append(encuestamode)
+    comboalu2.append(f"Encuesta: {encuestamode['Encuesta']}")
+    combopreg.append(f"Pregunta1: {encuestamode['Pregunta1']} - Pregunta2: {encuestamode['Pregunta2']} - Pregunta3: {encuestamode['Pregunta3']} - Pregunta4: {encuestamode['Pregunta4']}")
+    comboalu2.visible = True
+    nomyapelabel.visible = True
+    nomyapealumno.visible = True
+    button4.visible = False
+    button1.visible = False
+    button3.visible = True
     
 def combo_enc():
 
@@ -34,6 +52,8 @@ def combo_enc():
 def actioncont():
     global password
     password = input_passprofe.value 
+    nomyapelabel.visible=  False
+    nomyapealumno.visible= False
     if password == "1234":  
         actionprofe()
         passprofelabel.visible = False
@@ -140,7 +160,7 @@ def cuenta():
         opcionA.visible = False
         opcionB.visible = False
         opcionC.visible = False
-
+        comboalu2.visible = False
 def crear_encuesta():
     nombre = nombre_encuesta_input.value
     pregunta1 = pregunta1_input.value
@@ -213,6 +233,8 @@ def iniciar():
     message2.visible = True
     button1 = PushButton(boton, actionalu, text="Alumno", grid=[0,0] )
     button2 = PushButton(boton,  actionprofe, text="Profesor", grid=[2,0] )
+    button4 = PushButton(boton,  actionmode, text="Encuesta Modelo", grid=[4,0] )
+    button4.visible = False
     button1.visible = False
     button2.visible = False
 
@@ -224,6 +246,8 @@ message2 = Text(abmencuestas, text= "Seleccione la Opción:",  size= 20)
 boton = Box(abmencuestas, layout="grid", grid=[1,0])
 button1 = PushButton(boton, actionalu, text="Alumno", grid=[0,0] )
 button2 = PushButton(boton,  actionprofe, text="Profesor", grid=[2,0] )
+button4 = PushButton(boton,  actionmode, text="Encuesta Modelo", grid=[4,0] )
+
 passprofelabel = Text(abmencuestas,"Ingrese la contraseña: ")
 input_passprofe = TextBox(abmencuestas,"")
 input_passprofe.visible= False
