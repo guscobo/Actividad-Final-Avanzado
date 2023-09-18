@@ -8,13 +8,21 @@ cuentapreg = 0
 
 def actionalu():
     if comboalu2.value == "":
-        noenc = Text(abmencuestas,text="No hay encuestas Disponible", size = 20)
+        noenc.visible = True
         noenc.value
     else:
+        resA.visible = False
+        cantrespA.visible = False
+        resB.visible = False
+        cantrespB.visible = False
+        resC.visible = False
+        cantrespC.visible = False
         comboalu2.visible = True
+        nomyapealumno.value = ""
         nomyapelabel.visible = True
         nomyapealumno.visible = True
         salir_button.visible =True
+        resalu.visible = False
 
 def actionmode():
     
@@ -67,7 +75,8 @@ def actioncont():
         input_passprofe.value = ""
     
 def actionprofe():
-    
+
+    noenc.visible = False
     button4.visible = False
     resalu.visible = False
     nomyapelabel.visible = False
@@ -114,6 +123,9 @@ def actionprofe():
         button1.visible = False
         button2.visible = False
         input_passprofe.value = ""
+        passprofelabel.visible = False
+        input_passprofe.visible = False
+        button3.visible = False
         
     else:
         message4.visible = True
@@ -153,7 +165,6 @@ def cuenta():
         textopreg3.visible = False
         textopreg4.visible = True
     elif cuentapreg==4:
-        
         resalu.visible = True
         resalu.value = resalu.value +" "+ nomyapealumno.value
         nomyapelabel.visible = False
@@ -296,6 +307,8 @@ cantrespB = Text(abmencuestas,0)
 resC = Text(abmencuestas, text= "La cantidad de respuestas Opcion C es de: ", visible= False)
 cantrespC = Text(abmencuestas,0)
 resalu = Text(abmencuestas,text= "El Alumno: ",size=20)
+noenc = Text(abmencuestas,text="No hay encuestas Disponible", size = 20)
+noenc.visible = False
 resalu.visible = False
 cantrespA.visible = False
 cantrespB.visible = False
