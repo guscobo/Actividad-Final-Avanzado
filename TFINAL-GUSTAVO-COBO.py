@@ -59,6 +59,7 @@ def combo_enc():
     textopreg4.value = combopreg.value.split(" - ")[3] 
 
 def actioncont():
+
     global password
     password = input_passprofe.value 
     nomyapelabel.visible=  False
@@ -248,8 +249,7 @@ def mostrar_encuestas():
     actualizar_lista_encuestas()
 
 def iniciar():
-    #message1 = Text(abmencuestas, text= "Bienvenidos al Sistema de Encuentas Escolares",  size= 20)
-    #message2 = Text(abmencuestas, text= "Seleccione la Opción:",  size= 20)
+    
     message1.visible = True
     message2.visible = True
     button1 = PushButton(boton, actionalu, text="Alumno", grid=[0,0] )
